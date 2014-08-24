@@ -1,5 +1,11 @@
-## Put comments here that give an overall description of what your
-## functions do
+## The makeCacheMatrix and cacheSolve functions work together.  
+## makeCacheMatrix creates a cache matrix object which can hold a matrix and its inverse
+##
+## cacheSolve computes and stores the inverse matrix using the setInverse sub-function
+## function makeCacheMatrix
+## 
+## If a new matrix is put into the cache object a new inverse matrix must be 
+## calculated
 
 ## makeCacheMatrix creates an object to hold a matrix and it inverse
 makeCacheMatrix <- function(x = matrix()) {
@@ -43,7 +49,8 @@ makeCacheMatrix <- function(x = matrix()) {
         cacheInverse
     }
     
-    #set of the function list so that we can call the function
+    #set of the function list so that we can call the each of the functions as though
+    # the cacheMatrix is an object
     list ( set = set, 
            get = get,
            setInverse = setInverse,
@@ -57,7 +64,7 @@ makeCacheMatrix <- function(x = matrix()) {
 ## it use the R solve function to compute it and then the inverse matrix
 ## is stored in the cacheMatrix via the setInverse function of the cacheMatrix object
 cacheSolve <- function(cacheMatrixObj, ...) {
-        ## Return a matrix that is the inverse of 'x'
+    ## Return a matrix that is the inverse of 'x'
     
     #print("getInverse")
     cacheInverse <- cacheMatrixObj$getInverse()
